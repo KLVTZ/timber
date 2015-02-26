@@ -72,8 +72,12 @@ class TimberImageHelper {
      * @return string
      */
     public static function img_to_jpg( $src, $bghex = '#FFFFFF', $force = false ) {
-        $op = new TimberImageOperationPngToJpg($bghex);
-        return self::_operate($src, $op, $force);
+        $extension = pathinfo($src, PATHINFO_EXTENSION);
+        if ( $extension == 'png' ) {
+            $op = new TimberImageOperationPngToJpg($bghex);
+            return self::_operate($src, $op, $force);
+        }
+        return $src;
     }
 
     /**

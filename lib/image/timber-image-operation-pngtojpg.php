@@ -36,6 +36,7 @@ class TimberImageOperationPngToJpg extends TimberImageOperation {
      * @return bool                  true if everything went fine, false otherwise
      */
     function run($load_filename, $save_filename){
+        
         $input = imagecreatefrompng( $load_filename );
         list( $width, $height ) = getimagesize( $load_filename );
         $output = imagecreatetruecolor( $width, $height );
